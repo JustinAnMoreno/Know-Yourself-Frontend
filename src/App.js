@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "./components/partials/Header";
+import Footer from "./components/partials/Footer"
 import "./App.css";
 
 import { auth } from "./services/firebase";
@@ -98,9 +99,7 @@ export default function App() {
   return (
     <>
       <Header user={state.user} />
-      <main>
-        <section></section>
-      </main>
+      <Footer />
     </>
   );
 }

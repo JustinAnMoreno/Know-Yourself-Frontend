@@ -1,21 +1,39 @@
 import { login, logout } from "../../services/firebase";
 
 const Header = (props) => (
-    <header>
-        <h1>Know Yourself</h1>
-        <ul>
-            {
-                props.user ?
-                <>
-                    <li>Welcome, {props.user.displayName}</li>
-                    <li><img src = {props.user.photoURL} alt = {props.user.displayName}/></li>
-                    <li onClick={logout}>Logout </li>
-                </>
-                :
-            <li onClick={login}>Login</li>
-            }
-        </ul>
-    </header>
+  <header>
+    <h1>Know Yourself</h1>
+    <ul>
+      {props.user ? (
+        <>
+          <li>Welcome, {props.user.displayName}</li>
+          <li>
+            <img src={props.user.photoURL} alt={props.user.displayName} />
+          </li>
+          <li>
+            {" "}
+            <div class="dropdown">
+              <button class="dropbtn">
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="https://www.google.com/">My Diary</a>
+                <a href="#">My Calendar</a>
+                <a href="#">Habit Tracker</a>
+                <a href="#">Habit Tracker</a>
+                <a href="#">Habit Tracker</a>
+                <a href="#" onClick={logout}>
+                  Logout{" "}
+                </a>
+              </div>
+            </div>
+          </li>
+        </>
+      ) : (
+        <li onClick={login}>Login</li>
+      )}
+    </ul>
+  </header>
 );
 
 export default Header;
