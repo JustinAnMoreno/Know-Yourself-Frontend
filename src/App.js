@@ -4,6 +4,7 @@ import Footer from "./components/partials/Footer"
 import "./App.css";
 
 import { auth } from "./services/firebase";
+import { getQuote } from "./services/rq-api";
 
 export default function App() {
   const [state, setState] = useState({
@@ -14,10 +15,11 @@ export default function App() {
     },
   });
 
+
   async function getAppData() {
     if (!state.user) return;
     try {
-      const BASE_URL = "http://localhost:3001/api";
+      const BASE_URL = "http://localhost:3001/api/entries";
       const entries = await fetch(BASE_URL).then((res) => res.json());
       setState((prevState) => ({
         ...prevState,
@@ -52,7 +54,7 @@ export default function App() {
 
     e.preventDefault();
 
-    const BASE_URL = "http://localhost:3001/api/skills";
+    const BASE_URL = "http://localhost:3001/api/entries";
 
     if(!state.editMode) {
 
@@ -96,9 +98,79 @@ export default function App() {
     }
   }
 
+  function handleChange(e) {
+    setState((prevState) => ({
+      ...prevState, 
+      newEntry: {
+        ...prevState.newEntry,
+        [e.target.name]: e.target.value 
+      }
+    })) 
+  }
+
+  async function handleDelete(entryId) {
+    if(!state.user) return;
+    const URL = `http://localhost:3001/api/entries/${entryId}`;
+    
+    const entries = await fetch(URL, {
+      method: 'DELETE'
+    }).then(res => res.json());
+
+    setState(prevState => ({
+      ...prevState,
+      entries,
+    }));
+  }
+
+  function handleEdit(entryId) {
+    const { entry, _id } = state.entries.find(entry => entry._id === entryId);
+    setState(prevState => ({
+      ...prevState,
+      newEntry: {
+        entry,
+        _id,
+      },
+      editMode: true
+    }));
+  }
+
+  function handleCancel() {
+    setState(prevState => ({
+      ...prevState,
+      newEntry: {
+        entry: "",
+      },
+      editMode: false
+    }));
+  }
   return (
     <>
       <Header user={state.user} />
+      <main>
+        <section>
+          {state.entries.map((s) => (
+            <article key={s.entry}>
+              <div>{s.entry}</div>
+              <div onClick={() => handleDelete(s._id)}>{"🚫"}</div>
+              { !state.editMode && <div onClick={() => handleEdit(s._id)}>{"✏️"}</div> }
+            </article>
+          ))}
+          {
+            state.user && 
+            <>
+            <hr />
+              <form onSubmit={handleSubmit}>
+                <label>
+                  <span>Entry</span>
+                  <input name="entry" value={state.newEntry.Entry} onChange={handleChange} />
+                </label>
+                <button>{state.editMode ? 'EDIT ENTRY' : 'ADD ENTRY'}</button>
+              </form>
+              {state.editMode && <button onClick={handleCancel}>CANCEL</button> }
+            </>
+          }
+        </section>
+      </main>
       <Footer />
     </>
   );

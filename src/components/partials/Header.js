@@ -12,11 +12,11 @@ const Header = (props) => (
           </li>
           <li>
             {" "}
-            <div class="dropdown">
-              <button class="dropbtn">
-                <i class="fa fa-caret-down"></i>
+            <div className="dropdown">
+              <button className="dropbtn">
+                <i className="fa fa-caret-down"></i>
               </button>
-              <div class="dropdown-content">
+              <div className="dropdown-content">
                 <a href="https://www.google.com/">My Diary</a>
                 <a href="#">My Calendar</a>
                 <a href="#">Habit Tracker</a>

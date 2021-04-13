@@ -14,7 +14,7 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 5rem;
-  background-color: rgb(77, 195, 154);
+  background-color: #4dc39a;
   box-shadow: 2px 2px 2px 2px #dbdbdb;
   color: #ffffff;
 }
@@ -41,7 +41,7 @@ header > ul img {
 footer {
   display: flex;
   height: 3rem;
-  background-color: rgb(125, 129, 128);
+  background-color: #b5b9b8;
   box-shadow: 2px 2px 2px 2px #dbdbdb;
   color: #ffffff;
   position: fixed;
@@ -73,7 +73,7 @@ footer > ul li {
   font-size: 16px;
   border: none;
   outline: none;
-  color: white;
+  color: #ffffff;
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
@@ -82,7 +82,7 @@ footer > ul li {
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: #ff0000;
 }
 
 /* Dropdown content (hidden by default) */
@@ -91,14 +91,14 @@ footer > ul li {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px #00000033;
   z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
   float: none;
-  color: black;
+  color: #000000;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -107,7 +107,7 @@ footer > ul li {
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #dddddd;
 }
 
 /* Show the dropdown menu on hover */
