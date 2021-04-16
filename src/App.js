@@ -165,7 +165,7 @@ export default function App() {
                   <span>Entry</span>
                   <input name="entry" value={state.newEntry.entry} onChange={handleChange} />
                 </label>
-                <button>{state.editMode ? 'EDIT SKILL' : 'ADD SKILL'}</button>
+                <button>{state.editMode ? 'Edit Entry' : 'Add Entry'}</button>
               </form>
               {state.editMode && <button onClick={handleCancel}>CANCEL</button> }
             </>
