@@ -13,19 +13,7 @@ export default function App() {
       entry: "",
     },
   });
-  const [quoteData, setQuoteData ] = useState(
-    {
-      "success": "",
-      "contents": {
-        "quotes": [
-          {
-            "author": "",
-            "quote": "",
-          }
-        ]
-      }
-    }    
-  )
+  
 
 
   async function getAppData() {
@@ -33,7 +21,6 @@ export default function App() {
     try {
       const BASE_URL = `http://localhost:3001/api/entries?uid=${state.user.uid}`;
       const entries = await fetch(BASE_URL).then((res) => res.json());
-      const quotesURL = "";
       setState((prevState) => ({
         ...prevState,
         entries,
@@ -163,10 +150,10 @@ export default function App() {
         <section>
           {state.entries.map((s) => (
             <article key={s.entry}>
-              <div>{s.entry}</div>
-              <div onClick={() => handleDelete(s._id)}>{"🚫"}</div>
+              <div className = "journalLog">{s.entry}</div>         
               { !state.editMode && (
-                 <div onClick={() => handleEdit(s._id)}>{"✏️"}</div> )}
+                 <button onClick={() => handleEdit(s._id)}>{"Edit Entry"}</button> )}
+                 <button onClick={() => handleDelete(s._id)}>{"Remove Entry"}</button>
             </article>
           ))}
           {

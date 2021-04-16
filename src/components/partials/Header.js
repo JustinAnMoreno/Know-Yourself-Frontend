@@ -14,11 +14,11 @@ const Header = (props) => (
               </button>
               <div className="dropdown-content">
                 <a href="https://www.google.com/">My Diary</a>
-                <a href="#">My Calendar</a>
-                <a href="#">Habit Tracker</a>
-                <a href="#">Habit Tracker</a>
-                <a href="#">Habit Tracker</a>
-                <a href="#" onClick={logout}>
+                <a href="https://www.google.com/">My Calendar</a>
+                <a href="https://www.google.com/">Habit Tracker</a>
+                <a href="https://www.google.com/">Habit Tracker</a>
+                <a href="https://www.google.com/">Habit Tracker</a>
+                <a href="https://www.google.com/" onClick={logout}>
                   Logout{" "}
                 </a>
               </div>

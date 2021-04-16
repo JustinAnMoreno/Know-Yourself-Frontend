@@ -1,3 +1,30 @@
+## Know Yourself !
+
+    An app that allows users to have a focused and centralized location for keeping track of their mental health.
+
+<div align='center'>
+    <img src=/public/images/screengrab.png>
+
+## Tecnologies Used 
+    -Node.js
+    -Mongoose
+    -MongoDB
+    -Express
+    -React
+    -Firebase
+    
+
+## Getting Started 
+-[Click](Coming Soon) to launch app!
+On app load - sign in with your Google account and navigate the site through the dropdown in the nav bar.
+
+## Future Enhancements 
+    -Detailed and organzied styling.
+    -The ability to create and update a mood board.
+    -The ability to create and update a habit tracker. 
+    -Implement 3rd party API's.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

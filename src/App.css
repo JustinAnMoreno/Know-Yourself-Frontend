@@ -119,6 +119,21 @@ footer > ul li {
   display: block;
 }
 
+form {
+  margin-top: 15rem;
+}
+
+article {
+  display: flex;
+  margin: 1rem;
+  justify-content: space-between;
+  border-style: groove;
+  border-color: black;
+}
+
+.journalLog {
+  margin-top: 5px;
+}
 
 
 main {
