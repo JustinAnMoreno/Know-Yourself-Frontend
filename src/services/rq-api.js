@@ -1,5 +1,5 @@
-// export function getQuote() {
-//     return fetch("https://quotes.rest/qod?language=en")
-//     .then(res => render.json())
-// }
+export function getQuote() {
+    return fetch("https://zenquotes.io/api/today")
+    .then(res => render.json())
+}
 

@@ -6,11 +6,7 @@ const Header = (props) => (
     <ul>
       {props.user ? (
         <>
-          <li>Welcome, {props.user.displayName}</li>
-          <li>
-            <img src={props.user.photoURL} alt={props.user.displayName} />
-          </li>
-          <li>
+        <li>
             {" "}
             <div className="dropdown">
               <button className="dropbtn">
@@ -28,6 +24,11 @@ const Header = (props) => (
               </div>
             </div>
           </li>
+          <li>Welcome, {props.user.displayName}</li>
+          <li>
+            <img src={props.user.photoURL} alt={props.user.displayName} />
+          </li>
+          
         </>
       ) : (
         <li onClick={login}>Login</li>
