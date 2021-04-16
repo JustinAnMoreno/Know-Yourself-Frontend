@@ -18,7 +18,7 @@ const Header = (props) => (
                 <a href="https://www.google.com/">Habit Tracker</a>
                 <a href="https://www.google.com/">Habit Tracker</a>
                 <a href="https://www.google.com/">Habit Tracker</a>
-                <a href="https://www.google.com/" onClick={logout}>
+                <a href="#" onClick={logout}>
                   Logout{" "}
                 </a>
               </div>
