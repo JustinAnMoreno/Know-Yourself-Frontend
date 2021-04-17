@@ -19,7 +19,7 @@ export default function App() {
   async function getAppData() {
     if (!state.user) return;
     try {
-      const BASE_URL = `http://localhost:3001/api/entries?uid=${state.user.uid}`;
+      const BASE_URL = `https://know-yourself-react-app.herokuapp.com/api/entries?uid=${state.user.uid}`;
       const entries = await fetch(BASE_URL).then((res) => res.json());
       setState((prevState) => ({
         ...prevState,
@@ -33,7 +33,7 @@ export default function App() {
   useEffect(() => {
     getAppData();
 
-    auth.onAuthStateChanged((user) => {
+    const cancelSubscription = auth.onAuthStateChanged((user) => {
       if (user) {
         setState((prevState) => ({
           ...prevState,
@@ -47,6 +47,11 @@ export default function App() {
         }));
       }
     });
+
+    return function() { //cleanup function
+      cancelSubscription();
+    }
+
   }, [state.user]);
 
   async function handleSubmit(e) {
@@ -54,7 +59,7 @@ export default function App() {
 
     e.preventDefault();
 
-    const BASE_URL = "http://localhost:3001/api/entries";
+    const BASE_URL = "https://know-yourself-react-app.herokuapp.com/api/entries";
 
     if(!state.editMode) {
 
@@ -110,7 +115,7 @@ export default function App() {
 
   async function handleDelete(entryId) {
     if(!state.user) return;
-    const URL = `http://localhost:3001/api/entries/${entryId}`;
+    const URL = `https://know-yourself-react-app.herokuapp.com/api/entries/${entryId}`;
 
     const entries = await fetch(URL, {
       method: "DELETE"
